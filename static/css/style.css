@@ -36,7 +36,7 @@ p {
   padding: 0 12px;
 }
 
-a {
+a.link {
   text-decoration: none;
   box-decoration-break: clone;
   padding: 2px 3px;
@@ -45,30 +45,30 @@ a {
   color: rgb(57, 80, 99);
 }
 
-#header a:hover {
+#header a.link:hover {
   color: rgb(167, 185, 204);
   background-color: rgb(57, 80, 99);
 }
 
-#subheader a:hover, #footer a:hover {
+#subheader a.link:hover, #footer a.link:hover {
   color: rgb(226, 233, 240);
   background-color: rgb(57, 80, 99);
 }
 
-#footer a:hover svg {
+#footer a.link:hover svg {
   fill: rgb(226, 233, 240);
 }
 
-#footer a {
+#footer a.link {
   margin-right: 2px;
 }
 
-#content a {
+#content a.link {
   color: rgb(49, 147, 198);
   background-color: rgb(235, 248, 255);
 }
 
-#content a:hover {
+#content a.link:hover {
   background-color: rgb(210, 240, 255);
 }
 
@@ -125,7 +125,29 @@ code, pre {
   color: rgb(57, 80, 99);
 }
 
-a code {
+a.link code {
   color: rgb(49, 147, 198);
   background-color: rgb(207, 238, 255);
+}
+
+.media {
+  margin: 5px 0;
+  padding: 0 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.media-thumbnail {
+  margin: 12px 0;
+  flex: 0 0 auto;
+  width: 200px;
+}
+
+.media-description {
+  display: inline-block;
+}
+
+#content a.thumbnail {
+  display: inline-block;
+  vertical-align: text-bottom;
 }

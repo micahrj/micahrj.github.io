@@ -86,6 +86,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         let mut index = String::new();
         index.push_str(&header);
+
+        index.push_str(&read_to_string("templates/home.html")?);
+
         index.push_str(&read_to_string("templates/post-list-begin.html")?);
 
         let post_list_item = read_to_string("templates/post-list-item.html")?;
@@ -210,7 +213,7 @@ fn render_markdown(input: &str) -> Result<String, Box<dyn Error>> {
             Start(Strikethrough) => output.push_str("<del>"),
             End(Strikethrough) => output.push_str("</del>"),
             Start(Link(_, dest, _)) => {
-                output.push_str("<a href=\"");
+                output.push_str("<a class=\"link\" href=\"");
                 escape_href(&mut output, &dest)?;
                 output.push_str("\">");
             }
