@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=335">
-        <title>home — glowcoil</title>
+        <title>home — micah johnston</title>
         <link rel="stylesheet" href="https://use.typekit.net/byt7drp.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="glowcoil's blog">
+        <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="micah johnston's blog">
     </head>
 
     <body>
@@ -22,11 +22,10 @@
                 </div>
 
                 <div class="header-link-section">
-                    <p class="header-link"><a href="https://github.com/glowcoil">github</a></p>
-                    <p class="header-link"><a href="https://soundcloud.com/glowcoil">soundcloud</a></p>
+                    <p class="header-link"><a href="https://github.com/micahrj">github</a></p>
                     <p class="header-link"><a href="https://twitter.com/glowcoil">twitter</a></p>
-                    <p class="header-link"><a href="https://post.lurk.org/@glowcoil">mastodon</a></p>
-                    <p class="header-link"><a href="https://cohost.org/glowcoil">cohost</a></p>
+                    <p class="header-link"><a href="https://bsky.app/profile/micahrj.bsky.social">bluesky</a></p>
+                    <p class="header-link"><a href="https://mastodon.gamedev.place/@glowcoil">mastodon</a></p>
                 </div>
             </div>
 
@@ -35,13 +34,13 @@
 <div class="post">
     <h2><a href="/posts/llq">LLQ: A wait-free SPSC linked-list queue with recyclable nodes</a></h2>
     <div class="date">2022-12-04</div>
-    <p>Last year, I published a Rust library called <a href="https://glowcoil.com/posts/basedrop/">basedrop</a>, which implements a memory reclamation system tailored to the constraints of real-time audio scenarios. The purpose of basedrop is to make it easy to share dynamically allocated memory with a real-time audio thread while ensuring that no allocations or deallocations happen on that thread. This is accomplished by providing a set of smart pointers (analogous to <code>Box</code> and <code>Arc</code> from the Rust standard library) which do not directly free their associated allocation when dropped, but instead automatically push it onto a lock-free queue to be collected later on another thread.</p><p>Basedrop's design has some compelling benefits: it frees you from having to write code by hand every time you want to transfer an object to another thread to be freed, and if you restrict yourself to its vocabulary of smart pointers, it eliminates the possibility of accidentally dropping an allocation on the real-time thread (a mistake which can easily remain invisible if you don't have something like <a href="https://github.com/Windfisch/rust-assert-no-alloc"><code>assert_no_alloc</code></a> to catch it). However, after talking with some developers trying to make use of basedrop in real projects, it became clear to me that these benefits come at the cost of a somewhat opinionated API, making it difficult to integrate with certain program architectures. I decided that a stripped-down version of the core linked-list queue would probably have some value, and the end result of that was the <a href="https://github.com/glowcoil/llq">llq</a> crate.</p>
+    <p>Last year, I published a Rust library called <a href="/posts/basedrop/">basedrop</a>, which implements a memory reclamation system tailored to the constraints of real-time audio scenarios. The purpose of basedrop is to make it easy to share dynamically allocated memory with a real-time audio thread while ensuring that no allocations or deallocations happen on that thread. This is accomplished by providing a set of smart pointers (analogous to <code>Box</code> and <code>Arc</code> from the Rust standard library) which do not directly free their associated allocation when dropped, but instead automatically push it onto a lock-free queue to be collected later on another thread.</p><p>Basedrop's design has some compelling benefits: it frees you from having to write code by hand every time you want to transfer an object to another thread to be freed, and if you restrict yourself to its vocabulary of smart pointers, it eliminates the possibility of accidentally dropping an allocation on the real-time thread (a mistake which can easily remain invisible if you don't have something like <a href="https://github.com/Windfisch/rust-assert-no-alloc"><code>assert_no_alloc</code></a> to catch it). However, after talking with some developers trying to make use of basedrop in real projects, it became clear to me that these benefits come at the cost of a somewhat opinionated API, making it difficult to integrate with certain program architectures. I decided that a stripped-down version of the core linked-list queue would probably have some value, and the end result of that was the <a href="https://github.com/micahrj/llq">llq</a> crate.</p>
     <a href="posts/llq">read more</a>
 </div>
 <div class="post">
     <h2><a href="/posts/basedrop">Basedrop: A garbage collector for real-time audio in Rust</a></h2>
     <div class="date">2021-04-26</div>
-    <p>In real-time audio, deadlines are critical. Your code has on the order of several milliseconds to fill a buffer with samples to be shipped off to the <a href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">DAC</a>, milliseconds which it may be sharing with a number of other audio plugins. If your code takes too long to produce those samples, there are no second chances; they simply won't get played, and the user will hear an objectionable glitch or stutter instead.</p><p>In order to prevent this, real-time audio code must avoid performing any operations that can block the audio thread for an unbounded or unpredictable amount of time. Such operations include file and network I/O, memory allocation and deallocation, and the use of locks to synchronize with non-audio threads; these operations are not considered &quot;real-time safe.&quot; Instead, operations like I/O and memory allocation should be performed on other threads, and synchronization should be performed using primitives that are wait-free for the audio thread. A more thorough overview of the subject can be found in Ross Bencina's now-classic blog post <a href="http://www.rossbencina.com/code/real-time-audio-programming-101-time-waits-for-nothing">&quot;Time Waits for Nothing&quot;</a>.</p><p>Given that audio software generally does need to allocate memory and make use of it from the audio thread, the question becomes how to accomplish this in a manageable and efficient way while subject to the above constraints. <a href="https://github.com/glowcoil/basedrop">Basedrop</a> is my attempt at providing one answer to this question.</p>
+    <p>In real-time audio, deadlines are critical. Your code has on the order of several milliseconds to fill a buffer with samples to be shipped off to the <a href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">DAC</a>, milliseconds which it may be sharing with a number of other audio plugins. If your code takes too long to produce those samples, there are no second chances; they simply won't get played, and the user will hear an objectionable glitch or stutter instead.</p><p>In order to prevent this, real-time audio code must avoid performing any operations that can block the audio thread for an unbounded or unpredictable amount of time. Such operations include file and network I/O, memory allocation and deallocation, and the use of locks to synchronize with non-audio threads; these operations are not considered &quot;real-time safe.&quot; Instead, operations like I/O and memory allocation should be performed on other threads, and synchronization should be performed using primitives that are wait-free for the audio thread. A more thorough overview of the subject can be found in Ross Bencina's now-classic blog post <a href="http://www.rossbencina.com/code/real-time-audio-programming-101-time-waits-for-nothing">&quot;Time Waits for Nothing&quot;</a>.</p><p>Given that audio software generally does need to allocate memory and make use of it from the audio thread, the question becomes how to accomplish this in a manageable and efficient way while subject to the above constraints. <a href="https://github.com/micahrj/basedrop">Basedrop</a> is my attempt at providing one answer to this question.</p>
     <a href="posts/basedrop">read more</a>
 </div>
 <div class="post">
