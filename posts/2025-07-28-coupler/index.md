@@ -33,25 +33,10 @@ When I started work on VST 3 support for Coupler, there was in fact already an e
 
 # GUI
 
-
-
-# Plans
-
-
+Plugin GUIs also have a unique set of considerations, due to the fact that they run as embedded child windows and as guests of the host application's event loop. These considerations rule out most GUI libraries that are not expressly designed to be compatible with the plugin use case, and so I have also been working on a library for cross-platform window management called [Portlight](https://github.com/coupler-rs/portlight/). Portlight currently has backends for Windows, macOS, and X11, with basic support for input events, timers, DPI, and vsync. There's a lot of functionality left to implement, but the overall event loop architecture is solid.
 
 # Links
 
-- https://github.com/micahrj/clap-sys/
-- https://github.com/coupler-rs/vst3-rs
-- https://github.com/coupler-rs/auv2-sys
+Coupler isn't quite ready for a crates.io release yet, and there's not much in the way of documentation, but if you're interested in with experimenting with it, feel free to check out the you're interested in experimenting with Coupler, feel free to check out the [GitHub repository](github.com/coupler-rs/coupler).
 
-- https://github.com/coupler-rs/portlight
-- https://github.com/coupler-rs/flicker
-
-- https://coupler.rs/
-
-
-
-[Zulip instance](https://coupler.zulipchat.com/)
-
-[Rust Audio Discord](https://discord.gg/yVCFhmQYPC)
+If you're interested in collaborating, learning more about Coupler, or discussing plugin development in Rust, please feel free to join the [Zulip instance](https://coupler.zulipchat.com/) or the [Rust Audio Discord](https://discord.gg/yVCFhmQYPC)!
