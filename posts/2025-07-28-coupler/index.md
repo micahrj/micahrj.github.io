@@ -37,6 +37,4 @@ Plugin GUIs also have a unique set of considerations, due to the fact that they 
 
 # Links
 
-Coupler isn't quite ready for a crates.io release yet, and there's not much in the way of documentation, but if you're interested in with experimenting with it, feel free to check out the you're interested in experimenting with Coupler, feel free to check out the [GitHub repository](github.com/coupler-rs/coupler).
-
-If you're interested in collaborating, learning more about Coupler, or discussing plugin development in Rust, please feel free to join the [Zulip instance](https://coupler.zulipchat.com/) or the [Rust Audio Discord](https://discord.gg/yVCFhmQYPC)!
+Coupler isn't quite ready for a crates.io release yet, and there's not much in the way of documentation, but if you're interested in with experimenting with it, feel free to check out the [GitHub repository](github.com/coupler-rs/coupler). If you're interested in collaborating, learning more, or discussing plugin development in Rust, please feel free to join the [Zulip instance](https://coupler.zulipchat.com/) or the [Rust Audio Discord](https://discord.gg/yVCFhmQYPC)!
