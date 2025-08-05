@@ -42,11 +42,12 @@ body {
 }
 
 .header-link-section {
-    margin: 24px 12px 12px 12px;
+/*    margin: 24px 12px 12px 12px;*/
+    margin: 12px;
 }
 
 .header-link {
-    margin: 8px 0;
+/*    margin: 8px 0;*/
 /*    display: inline-block;*/
 }
 
@@ -65,8 +66,26 @@ body {
     padding: 12px 18px 8px 18px;
 }
 
+.post-header a {
+    color: rgb(57, 80, 99);
+/*    padding: 0;*/
+    padding: 1px 4px;
+    margin: -1px -4px;
+/*    background-color: rgb(167, 185, 204);*/
+/*    background-color: rgb(197, 213, 227);*/
+/*    background-color: rgb(226, 233, 240);*/
+    background-color: rgb(210, 222, 234);
+}
+
+.post-header a:hover {
+    color: rgb(167, 185, 204);
+    background-color: rgb(57, 80, 99);
+
+/*    color: rgb(226, 233, 240);*/
+}
+
 .post {
-    margin-bottom: 36px;
+    margin-bottom: 24px;
 }
 
 .date {
@@ -101,10 +120,6 @@ a {
     text-decoration: none;
     box-decoration-break: clone;
     padding: 2px 3px;
-    color: rgb(57, 80, 99);
-}
-
-a {
     color: rgb(49, 147, 198);
     background-color: rgb(235, 248, 255);
 }
