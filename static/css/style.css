@@ -43,17 +43,18 @@ body {
 
 .header-link-section {
 /*    margin: 24px 12px 12px 12px;*/
-    margin: 12px;
+    margin: 12px 4px 4px 4px;
+/*    font-size: 13px;*/
 }
 
 .header-link {
-/*    margin: 8px 0;*/
+    margin: 4px 0 0 0;
 /*    display: inline-block;*/
 }
 
 .header-image {
-/*    display: inline-block;*/
-    margin: 12px;
+    display: inline-block;
+    margin: 0;
     background-image: url("/header.png");
     background-size: cover;
     width: 200px;
@@ -61,27 +62,28 @@ body {
 }
 
 .post-header {
-    margin: 0 0 12px 0;
+    margin: 0;
     background-color: rgb(226, 233, 240);
-    padding: 12px 18px 8px 18px;
+    padding: 12px;
 }
 
 .post-header a {
     color: rgb(57, 80, 99);
-/*    padding: 0;*/
     padding: 1px 4px;
     margin: -1px -4px;
-/*    background-color: rgb(167, 185, 204);*/
-/*    background-color: rgb(197, 213, 227);*/
-/*    background-color: rgb(226, 233, 240);*/
-    background-color: rgb(210, 222, 234);
+/*    background-color: rgb(210, 222, 234);*/
+    background-color: rgb(226, 233, 240);
+    /*    background-color: rgb(197, 213, 227);*/
+    /*    background-color: rgb(226, 233, 240);*/
+
 }
 
 .post-header a:hover {
     color: rgb(167, 185, 204);
     background-color: rgb(57, 80, 99);
-
-/*    color: rgb(226, 233, 240);*/
+/*    background-color: rgb(210, 222, 234);*/
+/*    background-color: rgb(167, 185, 204);*/
+/*    background-color: rgb(210, 222, 234);*/
 }
 
 .post {
@@ -189,7 +191,7 @@ a code {
     }
 
     p.header-link {
-        display: inline-block;
+        display: inline;
         margin-right: 2px;
     }
 
@@ -221,25 +223,3 @@ a code {
         color: #000;
     }
 }
-
-/*
-#header {
-    background-color: rgb(167, 185, 204);
-    padding: 12px;
-}
-
-#subheader, #footer {
-    background-color: rgb(226, 233, 240);
-    padding: 12px;
-}
-
-#header a:hover {
-    color: rgb(167, 185, 204);
-    background-color: rgb(57, 80, 99);
-}
-
-#subheader a:hover, #footer a:hover {
-    color: rgb(226, 233, 240);
-    background-color: rgb(57, 80, 99);
-}
-*/
