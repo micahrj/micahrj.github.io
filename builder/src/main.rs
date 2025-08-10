@@ -48,7 +48,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         write("output/404.html", substitute(&error_404, &vars))?;
     }
 
-    let post_header = read_to_string("templates/post-header.html")?;
+    let post_template = read_to_string("templates/post.html")?;
 
     let mut posts = Vec::new();
     create_dir("output/posts/")?;
@@ -104,13 +104,13 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         let mut post = String::new();
         post.push_str(&header);
-        post.push_str(&post_header);
-        post.push_str(&rendered);
+        post.push_str(&post_template);
         post.push_str(&footer);
 
         let mut vars = HashMap::new();
         vars.insert("date".to_string(), format!("{}", date.format("%Y-%m-%d")));
         vars.insert("title".to_string(), metadata.title.clone());
+        vars.insert("contents".to_string(), rendered.clone());
         let substituted = substitute(&post, &vars);
 
         let mut post_dir = out_dir.clone();
@@ -132,12 +132,10 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     {
         let mut vars = HashMap::new();
-        vars.insert("title".to_string(), "home".to_string());
+        vars.insert("title".to_string(), "Home".to_string());
 
         let mut index = String::new();
         index.push_str(&header);
-
-        index.push_str(&read_to_string("templates/post-list-begin.html")?);
 
         let post_list_item = read_to_string("templates/post-list-item.html")?;
         for post in &posts {
@@ -152,7 +150,6 @@ fn main() -> Result<(), Box<dyn Error>> {
             index.push_str(&substitute(&post_list_item, &vars));
         }
 
-        index.push_str(&read_to_string("templates/post-list-end.html")?);
         index.push_str(&footer);
 
         write("output/index.html", substitute(&index, &vars))?;
@@ -161,16 +158,19 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     {
+        let page_template = read_to_string("templates/page.html")?;
+
         let source = read_to_string("pages/about.md")?;
         let rendered = render_markdown(&source)?;
 
         let mut page = String::new();
         page.push_str(&header);
-        page.push_str(&rendered);
+        page.push_str(&page_template);
         page.push_str(&footer);
 
         let mut vars = HashMap::new();
-        vars.insert("title".to_string(), "about me".to_string());
+        vars.insert("title".to_string(), "About Me".to_string());
+        vars.insert("contents".to_string(), rendered.clone());
         let substituted = substitute(&page, &vars);
 
         create_dir("output/about/")?;

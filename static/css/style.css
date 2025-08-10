@@ -1,16 +1,96 @@
 body {
-    padding: 50px;
+    margin: 0;
+    padding: 62px;
 
     font-family: 'source-sans-pro', sans-serif;
     font-size: 14px;
     font-weight: 400;
 
-    background-color: #fdfdfd;
-    color: #1c1d1e;
+    background-color: rgb(26, 33, 41);
+    color: rgb(57, 80, 99);
+}
+
+.wrapper {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    width: 200px;
+    background-color: rgb(226, 233, 240);
+    padding: 12px;
+}
+
+.body-wrapper {
+    padding: 0 50px 0 262px;
+}
+
+.body {
+    width: 800px;
+    background-color: rgb(253, 253, 253);
+}
+
+.body p {
+    margin: 16px 18px;
+}
+
+.body ul, ol {
+    padding: 0 18px 0 50px;
+    margin: 16px 0;
+}
+
+.header a {
+    color: rgb(57, 80, 99);
+    padding: 2px 3px;
+    background-color: rgb(226, 233, 240);
+}
+
+.header a:hover {
+    color: rgb(167, 185, 204);
+    background-color: rgb(57, 80, 99);
+}
+
+.header-link-section {
+    margin: 12px 0 4px 0;
+}
+
+.header-link {
+    margin: 4px 0 0 0;
+}
+
+.header-image {
+    display: inline-block;
+    background-image: url("/header.png");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.post-header {
+    margin: 0;
+    background-color: rgb(226, 233, 240);
+    padding: 12px 18px;
+}
+
+.post-header a {
+    color: rgb(57, 80, 99);
+    padding: 1px 4px;
+    margin: -1px -4px;
+    background-color: rgb(226, 233, 240);
+}
+
+.post-header a:hover {
+    color: rgb(167, 185, 204);
+    background-color: rgb(57, 80, 99);
 }
 
 .post {
-    margin-bottom: 40px;
+    padding: 16px 0 18px 0;
+}
+
+.post-inner {
+    margin: -16px 0;
 }
 
 .date {
@@ -23,11 +103,14 @@ h1 {
 
 h2 {
     font-size: 20px;
-    margin: 19px 0 2px 0;
+    margin: 0;
 }
 
 h3 {
+    background-color: rgb(226, 233, 240);
     font-size: 18px;
+    margin: 12px 0;
+    padding: 8px 18px;
 }
 
 h3 code {
@@ -38,22 +121,21 @@ h1, h2, h3 {
     font-weight: 400;
 }
 
-.header-image {
-    margin: 18px 0 16px 0;
-    background-image: url("/header.png");
-    background-size: cover;
-    width: 200px;
-    height: 200px;
-}
-
 a {
-    color: #1c1d1e;
-    height: 18px;
-    margin-bottom: 2px;
+    text-decoration: none;
+    box-decoration-break: clone;
+    padding: 2px 3px;
+    color: rgb(49, 147, 198);
+    background-color: rgb(235, 248, 255);
 }
 
 a:hover {
-    color: #39a4db;
+    background-color: rgb(210, 240, 255);
+}
+
+code {
+    padding: 0 3px;
+    box-decoration-break: clone;
 }
 
 pre {
@@ -66,33 +148,13 @@ code, pre {
     font-family: 'source-code-pro', monospace;
     font-weight: 400;
     font-size: 12px;
+    background-color: rgb(226, 233, 240);
+    color: rgb(57, 80, 99);
 }
 
-.header {
-    position: fixed;
-    width: 200px;
-    float: left;
-}
-
-.header p {
-    margin: 0;
-}
-
-.wrapper {
-    width: 1100px;
-    margin: 0 auto;
-}
-
-.body {
-    width: 800px;
-    float: right;
-    padding-bottom: 50px;
-    margin-top: 2px;
-    margin-right: 50px;
-}
-
-.header-link-section {
-    margin-bottom: 15px;
+a code {
+    color: rgb(49, 147, 198);
+    background-color: rgb(207, 238, 255);
 }
 
 @media print, screen and (max-width: 1260px) {
@@ -106,42 +168,42 @@ code, pre {
 }
 
 @media print, screen and (max-width: 960px) {
+    body {
+        padding: 48px;
+    }
+
     .wrapper {
         width: auto;
         margin: 0;
     }
 
-    .body {
-        width: auto;
-        margin: 0;
+    .body-wrapper {
         padding: 0;
     }
 
-    .header, .body {
-        float: none;
-        position: static;
+    .body {
         width: auto;
     }
 
     .header {
-        margin-bottom: 30px;
+        position: static;
+        width: auto;
+        margin-bottom: 36px;
     }
 
     .header-link-section {
-        padding: 0;
-        margin-bottom: 2px;
-        margin-right: 10px;
+        margin: 8px 0 0 0;
     }
 
     p.header-link {
-        display: inline-block;
-        margin-right: 2px;
+        display: inline;
+        margin-right: 6px;
     }
 
     .header-image {
+        display: inline-block;
         width: 100px;
         height: 100px;
-        margin: 0px 0 14px 0;
     }
 }
 
@@ -153,7 +215,11 @@ code, pre {
 
 @media print, screen and (max-width: 480px) {
     body {
-        padding: 15px;
+        padding: 18px;
+    }
+
+    .header {
+        margin-bottom: 18px;
     }
 }
 
