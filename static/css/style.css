@@ -1,5 +1,6 @@
 body {
-    padding: 50px;
+    margin: 0;
+    padding: 62px;
 
     font-family: 'source-sans-pro', sans-serif;
     font-size: 14px;
@@ -16,24 +17,22 @@ body {
 
 .header {
     position: fixed;
-    width: 224px;
-    float: left;
-    background-color: rgb(253, 253, 253);
+    width: 200px;
+    background-color: rgb(226, 233, 240);
+    padding: 12px;
+}
+
+.body-wrapper {
+    padding: 0 50px 0 262px;
 }
 
 .body {
     width: 800px;
-    float: right;
-    margin-top: 0;
-    margin-right: 50px;
-    margin-bottom: 50px;
-
     background-color: rgb(253, 253, 253);
 }
 
 .body p {
-    margin: 16px 0;
-    padding: 0 18px;
+    margin: 16px 18px;
 }
 
 .body ul, ol {
@@ -41,20 +40,27 @@ body {
     margin: 16px 0;
 }
 
+.header a {
+    color: rgb(57, 80, 99);
+    padding: 2px 3px;
+    background-color: rgb(226, 233, 240);
+}
+
+.header a:hover {
+    color: rgb(167, 185, 204);
+    background-color: rgb(57, 80, 99);
+}
+
 .header-link-section {
-/*    margin: 24px 12px 12px 12px;*/
-    margin: 12px 4px 4px 4px;
-/*    font-size: 13px;*/
+    margin: 12px 0 4px 0;
 }
 
 .header-link {
     margin: 4px 0 0 0;
-/*    display: inline-block;*/
 }
 
 .header-image {
     display: inline-block;
-    margin: 0;
     background-image: url("/header.png");
     background-size: cover;
     width: 200px;
@@ -64,30 +70,27 @@ body {
 .post-header {
     margin: 0;
     background-color: rgb(226, 233, 240);
-    padding: 12px;
+    padding: 12px 18px;
 }
 
 .post-header a {
     color: rgb(57, 80, 99);
     padding: 1px 4px;
     margin: -1px -4px;
-/*    background-color: rgb(210, 222, 234);*/
     background-color: rgb(226, 233, 240);
-    /*    background-color: rgb(197, 213, 227);*/
-    /*    background-color: rgb(226, 233, 240);*/
-
 }
 
 .post-header a:hover {
     color: rgb(167, 185, 204);
     background-color: rgb(57, 80, 99);
-/*    background-color: rgb(210, 222, 234);*/
-/*    background-color: rgb(167, 185, 204);*/
-/*    background-color: rgb(210, 222, 234);*/
 }
 
 .post {
-    margin-bottom: 24px;
+    padding: 16px 0 18px 0;
+}
+
+.post-inner {
+    margin: -16px 0;
 }
 
 .date {
@@ -100,7 +103,7 @@ h1 {
 
 h2 {
     font-size: 20px;
-    margin: 0 0 2px 0;
+    margin: 0;
 }
 
 h3 {
@@ -165,39 +168,40 @@ a code {
 }
 
 @media print, screen and (max-width: 960px) {
+    body {
+        padding: 48px;
+    }
+
     .wrapper {
         width: auto;
         margin: 0;
     }
 
-    .body {
-        width: auto;
-        margin: 0;
+    .body-wrapper {
+        padding: 0;
     }
 
-    .header, .body {
-        float: none;
-        position: static;
+    .body {
         width: auto;
     }
 
     .header {
-        margin-bottom: 24px;
+        position: static;
+        width: auto;
+        margin-bottom: 36px;
     }
 
     .header-link-section {
-/*        padding: 0;*/
-/*        margin: 2px 10px 8px 0;*/
+        margin: 8px 0 0 0;
     }
 
     p.header-link {
         display: inline;
-        margin-right: 2px;
+        margin-right: 6px;
     }
 
     .header-image {
         display: inline-block;
-        margin: 12px;
         width: 100px;
         height: 100px;
     }
@@ -211,7 +215,11 @@ a code {
 
 @media print, screen and (max-width: 480px) {
     body {
-        padding: 15px;
+        padding: 18px;
+    }
+
+    .header {
+        margin-bottom: 18px;
     }
 }
 
