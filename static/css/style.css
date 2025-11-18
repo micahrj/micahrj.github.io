@@ -31,6 +31,12 @@ body {
     background-color: rgb(253, 253, 253);
 }
 
+.body::before, .body::after {
+    display: block;
+    overflow: hidden;
+    content: " ";
+}
+
 .body p {
     margin: 16px 18px;
 }
@@ -86,11 +92,7 @@ body {
 }
 
 .post {
-    padding: 16px 0 18px 0;
-}
-
-.post-inner {
-    margin: -16px 0;
+    margin: 16px 0 18px 0;
 }
 
 .date {
