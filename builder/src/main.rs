@@ -277,6 +277,8 @@ fn render_markdown(input: &str) -> Result<String, Box<dyn Error>> {
             End(Paragraph) => output.push_str("</p>"),
             Start(Heading(_)) => output.push_str("<h3>"),
             End(Heading(_)) => output.push_str("</h3>"),
+            Start(BlockQuote) => output.push_str("<blockquote>"),
+            End(BlockQuote) => output.push_str("</blockquote>"),
             Start(CodeBlock(info)) => {
                 let lang = if let CodeBlockKind::Fenced(info) = info {
                     info.split(' ').next().unwrap().to_string()
