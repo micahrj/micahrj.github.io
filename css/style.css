@@ -31,6 +31,12 @@ body {
     background-color: rgb(253, 253, 253);
 }
 
+.body::before, .body::after {
+    display: block;
+    overflow: hidden;
+    content: " ";
+}
+
 .body p {
     margin: 16px 18px;
 }
@@ -86,11 +92,7 @@ body {
 }
 
 .post {
-    padding: 16px 0 18px 0;
-}
-
-.post-inner {
-    margin: -16px 0;
+    margin: 16px 0 18px 0;
 }
 
 .date {
@@ -138,9 +140,20 @@ code {
     box-decoration-break: clone;
 }
 
+blockquote {
+    margin: 12px 36px;
+    background-color: rgb(239, 242, 244);
+}
+
+blockquote::before, blockquote::after {
+    display: block;
+    overflow: hidden;
+    content: " ";
+}
+
 pre {
     padding: 8px;
-    margin: 12px;
+    margin: 12px 36px;
     overflow-x: auto;
 }
 
