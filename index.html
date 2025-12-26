@@ -32,6 +32,14 @@
             <div class="body-wrapper">
                 <div class="body">
 <div class="post-header">
+    <h2><a href="/posts/vst3">Simplifying the build process for vst3-rs</a></h2>
+    <div class="date">2025-12-26</div>
+</div>
+<div class="post">
+    <p><a href="https://github.com/steinbergmedia/vst3sdk">VST 3</a> is an audio plugin interface which is developed by Steinberg and supported by a large number of host applications and plugins. The VST 3 API comprises a set of C++ header files which contain definitions for structs, constants, and abstract base classes (used in a similar way to <a href="https://en.wikipedia.org/wiki/Component_Object_Model">COM</a>). I maintain a set of <a href="https://github.com/coupler-rs/vst3-rs">Rust bindings</a> for VST 3 which are automatically generated from the original C++ headers using <a href="https://clang.llvm.org/doxygen/group__CINDEX.html">libclang</a>.</p><p>Earlier this month, I released version 0.3.0 of the <code>vst3</code> crate. In previous versions of the crate, bindings were generated at build time, and users were required to supply both libclang and the VST 3 SDK as third-party dependencies. As of this latest version, the generated bindings are now published directly as part of the crate's source, and the build-time generation step and third-party dependencies are no longer necessary. This change both simplifies the setup process for downstream users of the crate and significantly improves build times.</p><p>These improvements were made possible by a recent change to the licensing situation around the VST 3 SDK, but they also required solving some technical problems regarding the output of the binding generator. I'll talk about both of these aspects below.</p>
+    <p><a href="posts/vst3">read more</a></p>
+</div>
+<div class="post-header">
     <h2><a href="/posts/llq">LLQ: A wait-free SPSC linked-list queue with recyclable nodes</a></h2>
     <div class="date">2022-12-04</div>
 </div>
